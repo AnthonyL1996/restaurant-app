@@ -32,3 +32,9 @@ pack build ghcr.io/anthonyl1996/restaurant-app:latest \
 --env "BP_NATIVE_IMAGE=true" \
 --cache-image ghcr.io/anthonyl1996/restaurant-app-paketo-cache-image:latest \
 --publish
+
+
+./mvnw spring-boot:build-image -Pnative
+docker tag restaurant-app:0.0.1-SNAPSHOT ghcr.io/anthonyl1996/restaurant-app:latest
+docker push ghcr.io/anthonyl1996/restaurant-app:latest
+
