@@ -27,12 +27,10 @@ jobs:
       # Explicitely defining the java-native-image buildpack as described here https://paketo.io/docs/howto/java/#configure-the-graalvm-version
       # to pin the GraalVM version (5.12.0 = GraalVM 21.3)
       - name: Build app with pack CLI & publish to GitHub Container Registry
-        run:
-          - ./mvnw spring-boot:build-image -Pnative
-          - docker tag restaurant-app:0.0.1-SNAPSHOT ghcr.io/anthonyl1996/restaurant-app:latest
-          - docker push ghcr.io/anthonyl1996/restaurant-app:latest
-
-
+        run: |
+          ./mvnw spring-boot:build-image -Pnative
+          docker tag restaurant-app:0.0.1-SNAPSHOT ghcr.io/anthonyl1996/restaurant-app:latest
+          docker push ghcr.io/anthonyl1996/restaurant-app:latest
 
       - name: Install flyctl via https://github.com/superfly/flyctl-actions
         uses: superfly/flyctl-actions/setup-flyctl@master
