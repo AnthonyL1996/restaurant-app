@@ -34,7 +34,7 @@ jobs:
               --path . \
               --env "BP_JVM_VERSION=17" \
               --env "BP_NATIVE_IMAGE=true" \
-              --cache-image ghcr.io/anthonyl1996/restaurant-app-paketo-cache-image:latest \
+              --cache-image ghcr.io/anthonyl1996/restaurant-app:latest \
               --publish
 
 
